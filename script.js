@@ -1,5 +1,6 @@
 // Global elements
 const container = document.querySelector('#container');
+const resetBtn = document.querySelector('.reset');
 let cols = 16;
 let rows = 16;
 
@@ -17,4 +18,13 @@ function createGrid(cols, rows) {
 };
 
 // Changes the div color when clicked
+function resetGrid() {
+    const gridDivs = document.querySelectorAll('.squareFill') 
+    gridDivs.forEach((div) => {
+        div.classList.remove('squareFill');
+    });
+}
+
+
 createGrid(cols, rows);
+resetBtn.addEventListener('click', resetGrid);
