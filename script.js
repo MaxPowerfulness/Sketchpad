@@ -7,9 +7,14 @@ let rows = 16;
 function createGrid(cols, rows) {
     for (let i = 0; i < (cols * rows); i++) {
         const div = document.createElement('div');
-        div.textContent = 'Test';
+        div.classList.add('square');
+        div.setAttribute('style', 'border: 1px solid black;');
+        div.addEventListener('click', function() {
+            div.classList.toggle('squareFill');
+        });
         container.appendChild(div);
     }
 };
 
+// Changes the div color when clicked
 createGrid(cols, rows);
