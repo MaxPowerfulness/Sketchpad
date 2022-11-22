@@ -18,10 +18,8 @@ body {
 }
 
 /* Grid Properties */
-#container {
+#gridContainer {
     display: grid;
-    grid-template-columns: repeat(16, 1fr);
-    grid-template-rows: repeat(16, 1fr);
     height: 700px;
     width: 700px;
     border: 1px black solid;
