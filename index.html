@@ -9,8 +9,16 @@
 </head>
 <body>
     <h1>Sketchpad</h1>
-    <div id="container"></div>
-    <button class="reset">Reset</button>
+    <div class="wrapper">
+        <div id="menu">
+            <div class="slideContainer">
+                <input type="range" min="16" max="70" value="16" oninput="displayDimensions()" class="slider" id="sliderRange">
+                <p>Size: <span class="width"></span> x <span class="height"></span></p>
+            </div>
+            <button class="reset">Reset</button>
+        </div>
+        <div id="container"></div>
+    </div>
     
     <script src="script.js"></script>
 </body>

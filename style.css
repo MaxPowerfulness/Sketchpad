@@ -4,6 +4,20 @@ body {
     align-items: center;
 }
 
+.wrapper {
+    display: flex;
+}
+
+/* Slider */
+.slider {
+    background: #FCF3CF;
+    opacity: 2;
+}
+.slider:hover {
+    opacity: 1;
+}
+
+/* Grid Properties */
 #container {
     display: grid;
     grid-template-columns: repeat(16, 1fr);
