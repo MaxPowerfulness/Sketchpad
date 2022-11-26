@@ -1,9 +1,12 @@
 // Slider
 const slider = document.getElementById('sliderRange');
+const opacitySlider = document.getElementById('opacitySlider');
 const output = document.querySelector('.width');
 const output2 = document.querySelector('.height')
-output.innerHTML = slider.value; // First number of dimension
-output2.innerHTML = slider.value; // Second number of dimension
+const output3 = document.querySelector('.opacityNum')
+output.innerHTML = slider.value; // Initial display of first number of dimension
+output2.innerHTML = slider.value; // Initial display of second number of dimension
+output3.innerHTML = opacitySlider.value; // Initial display of opacity value
 
 
 // Global elements
@@ -33,6 +36,11 @@ function displayDimensions() {
     output2.innerHTML = slider.value;
     resetGrid();
     updateGrid();
+}
+
+// Changes the display for the opacity value when the user changes the value.
+function displayOpacity() {
+    output3.innerHTML = opacitySlider.value;
 }
 
 // Creates a number of square divs that get arranged into a grid. 
