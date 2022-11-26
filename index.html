@@ -12,8 +12,12 @@
     <div class="wrapper">
         <div id="menu">
             <div class="slideContainer">
-                <input type="range" min="16" max="70" value="16" oninput="displayDimensions()" class="slider" id="sliderRange">
+                <input type="range" min="16" max="60" value="16" oninput="displayDimensions()" class="slider" id="sliderRange">
                 <p>Size: <span class="width"></span> x <span class="height"></span></p>
+            </div>
+            <div class="colorWheelContainer">
+                <label for ="fillColor">Choose a color:</label>
+                <input type="color" id="fillColor" name="fillColor" value="black">
             </div>
             <button class="reset">Reset</button>
         </div>

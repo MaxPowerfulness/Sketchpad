@@ -8,6 +8,15 @@ body {
     display: flex;
 }
 
+#menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border: 1px solid black;
+    padding: 20px;
+    padding-right: 60px;
+}
+
 /* Slider */
 .slider {
     background: #FCF3CF;
@@ -25,8 +34,9 @@ body {
     border: 1px black solid;
 }
 
-.square {
+.squareTransparent {
     background: transparent;
+    border: 1px solid black;
 }
 
 .squareFill {
