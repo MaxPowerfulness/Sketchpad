@@ -37,6 +37,7 @@ function displayDimensions() {
     output2.innerHTML = slider.value;
     resetGrid();
     updateGrid();
+    gridItems = container.querySelectorAll('div.squareTransparent');
     changeColor();
 }
 
