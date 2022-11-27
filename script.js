@@ -19,9 +19,10 @@ let area = slider.value**2;
 createGrid(area);
 let gridItems = container.querySelectorAll('div.squareTransparent');
 fillColor.addEventListener('input', function() {  // Event listener for color wheel
-    console.log(fillColor.value)
-    changeColor();
+    backgroundColor = hexToRGB(fillColor.value, opacitySlider.value); // Background color for fill
 });
+let backgroundColor = hexToRGB(fillColor.value, opacitySlider.value); // Initialize
+changeColor();
 resetBtn.addEventListener('click', clearGrid);  // Reset button resets the grid
 
 
@@ -36,11 +37,7 @@ function displayDimensions() {
     output2.innerHTML = slider.value;
     resetGrid();
     updateGrid();
-}
-
-// Changes the display for the opacity value when the user changes the value.
-function displayOpacity() {
-    output3.innerHTML = opacitySlider.value;
+    changeColor();
 }
 
 // Creates a number of square divs that get arranged into a grid. 
@@ -50,24 +47,44 @@ function createGrid(area) {
     for (let i = 0; i < area; i++) {
         const div = document.createElement('div');
         div.classList.add('squareTransparent');
-        div.setAttribute('style', 'border: 1px solid black;');
-        div.addEventListener('mousedown', function () {
-            div.style.backgroundColor = 'black'
-        })
+        div.setAttribute('style', 'border: 1px solid black; background-color: transparent');
         container.appendChild(div);
     }
 };
 
-// Fill color
-function changeColor() {
-    gridItems = container.querySelectorAll('div.squareTransparent');
-    gridItems.forEach((item) => { 
+function changeColor () {
+    gridItems.forEach((item) => {
         item.addEventListener('mousedown', () => {
-            item.setAttribute('style',`background: ${fillColor.value}`);
-        });
+            switch (true) {
+                case item.style.backgroundColor == 'transparent':
+                    item.style.backgroundColor = backgroundColor;
+                    break;
+                case item.style.backgroundColor !== 'transparent':
+                    item.style.backgroundColor = 'transparent';
+                    break;
+            };
+        })
     });
-};
+}
 
+// Changes the display for the opacity value when the user changes the value.
+function displayOpacity() {
+    output3.innerHTML = opacitySlider.value;
+    backgroundColor = hexToRGB(fillColor.value, opacitySlider.value);
+}
+
+// Takes a hexcode and converts it into RGBA to allow for changes in opacity to occur when filling the grid items.
+function hexToRGB(hex, alpha) {
+    let r = parseInt(hex.slice(1, 3), 16),
+        g = parseInt(hex.slice(3, 5), 16),
+        b = parseInt(hex.slice(5, 7), 16);
+
+    if (alpha) {
+        return "rgba(" + r + ", " + g + ", " + b + ", " + alpha + ")";
+    } else {
+        return "rgb(" + r + ", " + g + ", " + b + ")";
+    }
+}
 
 /*
 Removes all the grid items (div blocks) to allow the new amount of grid items
