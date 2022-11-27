@@ -53,6 +53,7 @@ function createGrid(area) {
     }
 };
 
+// Adds a mousedown eventlistener to each div that allows to toggle between the fill color and default color.
 function changeColor () {
     gridItems.forEach((item) => {
         item.addEventListener('mousedown', () => {
@@ -68,7 +69,7 @@ function changeColor () {
     });
 }
 
-// Changes the display for the opacity value when the user changes the value.
+// Changes the display for the opacity value and the background color when the user changes the value.
 function displayOpacity() {
     output3.innerHTML = opacitySlider.value;
     backgroundColor = hexToRGB(fillColor.value, opacitySlider.value);
