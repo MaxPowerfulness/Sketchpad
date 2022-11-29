@@ -15,6 +15,11 @@ body {
     height: 100vh;
 }   
 
+h1 {
+    font-size: 50px;
+    text-shadow: 2px 2px 2px;
+}
+
 #wrapper {
     display: flex;
 }
