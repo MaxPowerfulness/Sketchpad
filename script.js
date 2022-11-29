@@ -18,10 +18,10 @@ let area = slider.value**2;
 // Initialize
 createGrid(area);
 let gridItems = container.querySelectorAll('div.squareTransparent');
-fillColor.addEventListener('input', function() {  // Event listener for color wheel
-    backgroundColor = hexToRGB(fillColor.value, opacitySlider.value); // Background color for fill
+fillColor.addEventListener('input', function() {  // Reassigns backgroundColo everytime color wheel is used
+    backgroundColor = hexToRGB(fillColor.value, opacitySlider.value);
 });
-let backgroundColor = hexToRGB(fillColor.value, opacitySlider.value); // Initialize
+let backgroundColor = hexToRGB(fillColor.value, opacitySlider.value); // Initialize default fill color
 changeColor();
 resetBtn.addEventListener('click', clearGrid);  // Reset button resets the grid
 
@@ -48,7 +48,7 @@ function createGrid(area) {
     for (let i = 0; i < area; i++) {
         const div = document.createElement('div');
         div.classList.add('squareTransparent');
-        div.setAttribute('style', 'border: 1px solid black; background-color: transparent');
+        div.setAttribute('style', `border: 1px solid black; background-color: transparent`);
         container.appendChild(div);
     }
 };
@@ -88,6 +88,17 @@ function hexToRGB(hex, alpha) {
     }
 }
 
+// Toggles the presence and absence of the grid lines in the sketch pad.
+function toggleGridLines() {
+    gridItems.forEach((item) => {
+        if (item.style.border == '0px') {
+            item.setAttribute('style', 'border: solid black 1px;');
+        } else {
+            item.setAttribute('style', 'border: 0px;');
+        };
+    });
+}
+
 /*
 Removes all the grid items (div blocks) to allow the new amount of grid items
 to be appended into the grid contianer. This prevents the additional grid items
@@ -104,7 +115,7 @@ function resetGrid() {
 // Updates the grid size of the display
 function updateGrid() {
     area = slider.value**2;
-    createGrid(area);
+    createGrid(area, 1);
 }
 
 // Clears the grid back to the default state of no color

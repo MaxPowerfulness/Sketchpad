@@ -11,9 +11,12 @@
     <h1>Sketchpad</h1>
     <div class="wrapper">
         <div id="menu">
-            <div class="slideContainer">
-                <input type="range" min="16" max="60" value="16" oninput="displayDimensions()" class="slider" id="sliderRange">
-                <p>Size: <span class="width"></span> x <span class="height"></span></p>
+            <div id="gridSettings">
+                <div class="slideContainer">
+                    <input type="range" min="16" max="60" value="16" oninput="displayDimensions()" class="slider" id="sliderRange">
+                    <p>Size: <span class="width"></span> x <span class="height"></span></p>
+                </div>
+                <button onclick="toggleGridLines()">Toggle grid lines</button>
             </div>
             <div class="colorWheelContainer">
                 <label for ="fillColor">Choose a color:</label>
@@ -27,7 +30,6 @@
         </div>
         <div id="gridContainer"></div>
     </div>
-    
     <script src="script.js"></script>
 </body>
 </html>
